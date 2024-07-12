@@ -17,17 +17,19 @@ from tqdm import tqdm
 decay = 0.001
 learning_rate = 0.001
 # of images sent to GPU each time
-    # Miggie computer could take no more 
+   
 batch_size = 144
 
 # num of runs through entire dataset
 num_epochs = 5
 
 # if blank start training from random
+#start_model = ""
+#start_model = "resnet18_best.pth"
 start_model = ""
-# start_model = "resnet18_best.pth"
 
-save_path = "models/"
+
+save_path = "models_1:24/"
 data_path = "data/"
 
 # made a list for each folder in the dataset
@@ -175,6 +177,7 @@ def train_model(model, criterion, optimizer):
         total_path = save_path + f"resnet18_epoch_{epoch+1}.pth"
         torch.save(model.state_dict(), total_path)
         print(f"Model saved at {total_path}")
+        
 
         print()
 
