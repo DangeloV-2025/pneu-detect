@@ -1,0 +1,17 @@
+Starting training
+
+Epoch 1/8: 100%|█| 37/37 [06:37<00:00, 10.73s/batch, acc=0.941,
+Epoch [1/8], Train Loss: 0.1634, Train Acc: 0.9406, Eval Loss: 0.2898, Eval Acc: 0.9375
+Model saved at models_jul12/resnet18_epoch_1.pth
+
+Epoch 2/8: 100%|█████████████████████| 37/37 [07:09<00:00, 11.62s/batch, acc=0.97, loss=0.0773]
+Epoch [2/8], Train Loss: 0.0773, Train Acc: 0.9695, Eval Loss: 0.2963, Eval Acc: 0.8750
+Model saved at models_jul12/resnet18_epoch_2.pth
+
+Epoch 3/8: 100%|████████████████████| 37/37 [07:26<00:00, 12.06s/batch, acc=0.979, loss=0.0568]
+Epoch [3/8], Train Loss: 0.0568, Train Acc: 0.9791, Eval Loss: 0.2673, Eval Acc: 0.8750
+Model saved at models_jul12/resnet18_epoch_3.pth
+
+Epoch 4/8:  43%|████████▋           | 16/37 [03:45<04:2Epoch 4/8:  46%|█████████▏          | 17/37 [03:45<04:1Epoch 4/8: 100%|████████████████████| 37/37 [07:35<00:00, 12.31s/batch, acc=0.975, loss=0.0657]
+Epoch [4/8], Train Loss: 0.0657, Train Acc: 0.9749, Eval Loss: 2.8379, Eval Acc: 0.5000
+Model saved at models_jul12/resnet18_epoch_4.pth
