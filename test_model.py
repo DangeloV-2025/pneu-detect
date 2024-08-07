@@ -12,12 +12,14 @@ import torch.optim as optim
 from torchvision import datasets, models, transforms
 from torchvision.models import ResNet18_Weights
 
+import pickle
+
 
 batch_size = 144
 
 model_file = "resnet18_epoch_8.pth"
 
-save_path = "models_jul12/"
+save_path = "models/models_jul12/"
 data_path = "data/"
 
 data_groups = ["test", "train", "val"]
@@ -76,6 +78,11 @@ for data_group in data_groups:
     # show_transformed_image(gp_dataset, 0)
 
 resnet = models.resnet18(weights=ResNet18_Weights.DEFAULT)
+
+
+with open("pneu_model.pkl", "wb") as f:
+    pickle.dump(resnet, f)
+
 # Modify the classifier of ResNet-18
 num_ftrs = resnet.fc.in_features
 # Modify output to match number of classes
@@ -102,6 +109,7 @@ def evaluate_model(model, criterion, group_name):
             inputs, labels = inputs.to(device), labels.to(device)  # Move to CUDA
 
             outputs = model(inputs)
+            print(outputs)
             loss = criterion(outputs, labels)
             running_loss += loss.item() * inputs.size(0)
             _, predicted = torch.max(outputs, 1)

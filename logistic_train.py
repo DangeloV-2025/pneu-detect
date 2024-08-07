@@ -3,9 +3,11 @@ import numpy as np
 import torch
 from torchvision import datasets, transforms
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report, accuracy_score
+from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 data_path = "data/"
 batch_size = 144
@@ -65,7 +67,17 @@ val_predictions = clf.predict(val_data)
 print("Validation Accuracy:", accuracy_score(val_labels, val_predictions))
 print(classification_report(val_labels, val_predictions, target_names=group_datasets["train"].classes))
 
+
 # Evaluate on test set
 test_predictions = clf.predict(test_data)
 print("Test Accuracy:", accuracy_score(test_labels, test_predictions))
 print(classification_report(test_labels, test_predictions, target_names=group_datasets["train"].classes))
+
+# Confusion matrix for test set
+test_cm = confusion_matrix(test_labels, test_predictions)
+plt.figure(figsize=(10, 7))
+sns.heatmap(test_cm, annot=True, fmt='d', cmap='Blues', xticklabels=group_datasets["train"].classes, yticklabels=group_datasets["train"].classes)
+plt.xlabel('Predicted')
+plt.ylabel('True')
+plt.title('Test Confusion Matrix')
+plt.show()

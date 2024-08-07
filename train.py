@@ -12,6 +12,7 @@ from torchvision import datasets, models, transforms
 from torchvision.models import ResNet18_Weights
 from tqdm import tqdm
 
+
 # Add decay to penalize large weights
 # (This prevents overfitting)
 decay = 0.001
